@@ -13,11 +13,13 @@
       }
       h1 {
         font-size: 4rem;
-        margin-top: 20%;
         color: #FFA500;
+        margin: 0px;
+        margin-bottom: 2rem;
       }
       p {
         font-size: 2rem;
+        margin-top: 3rem;
       }
       a {
         display: block;
@@ -33,12 +35,34 @@
         vertical-align: middle;
         margin-right: 1rem;
       }
+      .logo {
+        vertical-align: middle;
+        width:20%;
+      }
+    .container {
+      /* border: 3px solid green; */
+      margin-top: 32px;
+    }
+
+
+    .discord-badge {
+        margin-top: 2rem;
+        height: 32px;
+    }
+
     </style>
   </head>
   <body>
-    <h1><span style="color: #FFD700">⚡</span><span style="color: #FFA500">Z</span><span style="color: #FFD700">A</span><span style="color: #FFA500">P</span><span style="color: #FFD700">⚡</span></h1>
-    <p><b>blazingly fast</b> web backends in zig</p>
-    <a href="https://github.com/zigzap">
-      <img src="github-mark-white.png" alt="GitHub icon" width="32" height="32">view on GitHub</a>
+      <div class="container">
+          <div class="center"> <!--disabled center-->
+            <h1><span style="color: #FFD700">⚡</span><span style="color: #FFA500">Z</span><span style="color: #FFD700">A</span><span style="color: #FFA500">P</span><span style="color: #FFD700">⚡</span></h1>
+            <img class="logo" src="zap-tr.png" />
+            <p><b>blazingly fast</b> web backends in zig</p>
+            <a href="https://github.com/zigzap">
+              <img src="github-mark-white.png" alt="GitHub icon" width="32" height="32">view on GitHub</a>
+
+            <img class="discord-badge" src="https://camo.githubusercontent.com/f68dc33292a51409a5e649ae0d054c9d1ea3a964f5b566d2602808fc06b13a4d/68747470733a2f2f696d672e736869656c64732e696f2f646973636f72642f313130373833353839363335363637353730363f6c6162656c3d63686174266c6f676f3d646973636f7264267374796c653d706c6173746963"/>
+          </div>
+      </div>
   </body>
 </html>
