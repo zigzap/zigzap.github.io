@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Zap</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./css/output.css" rel="stylesheet">
+
+    <script src="./language-highlight/highlight.min.js"></script>
+    <link rel="stylesheet" href="./language-highlight/styles/atom-one-dark.css">
+    <script>hljs.highlightAll();</script>
+</head>
+
+<body class="h-screen">
+    <div id="header"
+        class="flex justify-between items-center py-2 px-4 md:px-10 border-b-zap-yellow border-b-solid border-b-2">
+        <span class="text-3xl font-bold hover:underline decoration-zap-yellow"><a href="index.html">⚡ZAP⚡</a></span>
+        <div class="flex gap-2 md:gap-5">
+            <span class="text-xl hover:underline decoration-zap-yellow"><a href="learn.html">Learn</a></span>
+            <span class="text-xl hover:underline decoration-zap-yellow"><a href="https://zigzap.org/zap" target="_blank"
+                    rel="noopener noreferrer">Docs</a></span>
+            <span class="text-xl hover:underline decoration-zap-yellow"><a href="https://github.com/zigzap/zap"
+                    target="_blank" rel="noopener noreferrer">GitHub</a></span>
+        </div>
+    </div>
+
+    <div class="my-14" />
+
+    <div class="pt-5 mb-10 mx-auto px-5 w-full lg:max-w-[120ch]">
+        <section>
+            <div class="w-full lg:w-auto">
+                <div class="mb-5">
+                    <h3 class="text-3xl font-semibold underline decoration-zap-yellow mb-2">Getting Started</h3>
+                    <p class="text-lg mb-2">Start by creating a new 0.11.0 Zig project and changing into the new
+                        directory.</p>
+<pre><code class="language-bash">$ mkdir hello-world
+$ cd hello-world
+$ zig init-exe</code></pre>
+
+                    <div class="my-6" />
+
+                    <p class="text-lg mb-2">Add Zap as a dependency to <code>build.zig.zon</code></p>
+<pre><code class="language-zig">.{
+    .name = "hello-world",
+    .version = "0.0.1",
+    .minimum_zig_version = "0.11.0",
+    .dependencies = .{
+        // zap v0.5.0
+        .zap = .{
+            .url = "https://github.com/zigzap/zap/archive/refs/tags/v0.5.0.tar.gz",
+            .hash = "1220aabff84ad1d800f5657d6a49cb90dab3799765811ada27faf527be45dd315a4d",
+        },
+    },
+}</code></pre>
+
+                    <div class="my-6" />
+
+                    <p class="text-lg mb-2">Add Zap to <code>build.zig</code></p>
+<pre><code class="language-zig">const zap = b.dependency("zap", .{
+    .target = target,
+    .optimize = optimize,
+    .openssl = false, // set to true to enable TLS support
+});
+exe.addModule("zap", zap.module("zap"));
+exe.linkLibrary(zap.artifact("facil.io"));</code></pre>
+
+                    <div class="my-6" />
+
+                    <p class="text-lg mb-2">Replace the contents of <code>src/main.zig</code> with the following.
+                    <span class="opacity-65"><i>Note: The complete source code for this example can be found <a href="https://github.com/zigzap/hello-world" class="underline decoration-zap-yellow" target="_blank" rel="noopener noreferrer">here</a>.</i></span></p>
+<pre><code class="language-zig">const std = @import("std");
+const zap = @import("zap");
+
+fn on_request(r: zap.Request) void {
+    if (r.path) |the_path| {
+        std.debug.print("PATH: {s}\n", .{the_path});
+    }
+
+    if (r.query) |the_query| {
+        std.debug.print("QUERY: {s}\n", .{the_query});
+    }
+
+    r.sendBody("&lt;html&gt;&lt;body&gt;&lt;h1&gt;Hello from ZAP!!!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;") catch return;
+}
+
+pub fn main() !void {
+    var listener = zap.HttpListener.init(.{
+        .port = 3000,
+        .on_request = on_request,
+        .log = true,
+        .max_clients = 100000,
+    });
+    try listener.listen();
+
+    std.debug.print("Listening on 0.0.0.0:3000\n", .{});
+
+    zap.start(.{
+        .threads = 2,
+        .workers = 1, // 1 worker enables sharing state between threads
+    });
+}</code></pre>
+
+                    <div class="my-6" />
+
+                    <p class="text-lg mb-2">That's it! Build and run the program, then go to
+                        <code>http://127.0.0.1:3000/</code>
+                    </p>
+                    <pre><code class="language-bash">$ zig build run</code></pre>
+
+                    <div class="my-6" />
+
+                    <p class="text-lg mb-2">For more examples, check out the repo
+                        <a href="https://github.com/zigzap/zap?tab=readme-ov-file#heres-what-works"
+                            class="underline decoration-zap-yellow" target="_blank" rel="noopener noreferrer">here</a>.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="my-16" />
+
+        <section>
+            <div class="w-full lg:w-auto">
+                <div class="mb-5">
+                    <h3 class="text-3xl font-semibold underline decoration-zap-yellow mb-2">FAQ</h3>
+                    <ul class="list-disc list-inside">
+                        <li class="text-lg">Q: Does Zap support Zig master?</li>
+                        <ul class="list-disc list-inside ml-4 mb-2">
+                            <li>A: See the 0.12.0 branch. Please note that the 0.12.0 branch is
+                                not the official master branch of Zap until Zig 0.12.0 is released.</li>
+                        </ul>
+                        <li class="text-lg">Q: Does ZAP work on Windows?</li>
+                        <ul class="list-disc list-inside ml-4 mb-2">
+                            <li>A: No. This is due to the underlying facil.io C
+                            library. Future versions of facil.io might support Windows but there is no timeline yet.
+                            Your best options on Windows are WSL2 or a docker container.</li>
+                        </ul>
+                        <li class="text-lg">Q: Does ZAP support TLS / HTTPS?</li>
+                        <ul class="list-disc list-inside ml-4 mb-2">
+                            <li>A: Yes, ZAP supports using the system's openssl. See the <a
+                                class="underline decoration-zap-yellow" target="_blank" rel="noopener noreferrer"
+                                href="https://github.com/zigzap/zap/blob/master/examples/https/https.zig" class="underline decoration-zap-yellow"
+                                target="_blank" rel="noopener noreferrer">https</a>
+                                example for more information. You must set <code>.openssl = true</code> within the
+                                <code>build.zig</code> dependency like shown above.
+                            </li>
+                        </ul>
+                        <li class="text-lg">Q: Where is the API documentation?</li>
+                        <ul class="list-disc list-inside ml-4 mb-2">
+                            <li>Docs are a work in progress. You can check them out <a
+                                    class="underline decoration-zap-yellow" target="_blank" rel="noopener noreferrer"
+                                    href="https://zigzap.org/zap" class="underline decoration-zap-yellow"
+                                    target="_blank" rel="noopener noreferrer">here</a>. The docs are based on the
+                                <code>zig-0.12.0 branch</code>
+                                but apply to the current release (Zig 0.11.0), too.
+                            </li>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

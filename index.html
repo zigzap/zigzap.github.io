@@ -1,72 +1,115 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+
+<head>
+    <title>Zap</title>
     <meta charset="UTF-8">
-    <title>⚡ZAP⚡</title>
-    <link href="https://fonts.googleapis.com/css?family=Fira+Code&display=swap" rel="stylesheet">
-    <style>
-      body {
-        background-color: #1a1a1a;
-        color: #fff;
-        font-family: 'Fira Code', monospace;
-        text-align: center;
-      }
-      h1 {
-        font-size: 4rem;
-        color: #FFA500;
-        margin: 0px;
-        margin-top: 4rem;
-        margin-bottom: 2rem;
-      }
-      p {
-        font-size: 2rem;
-        margin-top: 3rem;
-      }
-      a {
-        display: block;
-        font-size: 2rem;
-        margin-top: 2rem;
-        color: #4e6bff;
-        text-decoration: none;
-      }
-      a:hover {
-        text-decoration: underline;
-      }
-      img {
-        vertical-align: middle;
-        margin-right: 1rem;
-      }
-      .logo {
-        vertical-align: middle;
-        width:20%;
-      }
-    .container {
-      /* border: 3px solid green; */
-      margin-top: 32px;
-    }
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./css/output.css" rel="stylesheet">
 
+    <script src="./language-highlight/highlight.min.js"></script>
+    <link rel="stylesheet" href="./language-highlight/styles/atom-one-dark.css">
+    <script>hljs.highlightAll();</script>
+</head>
 
-    .discord-badge {
-        /* margin-top: 2rem; */ 
-        /* handled by <a> */ 
-        height: 32px;
-    }
+<body class="h-screen">
+    <div id="header" class="flex justify-between items-center py-2 px-4 md:px-10 border-b-zap-yellow border-b-solid border-b-2">
+        <span class="text-3xl font-bold hover:underline decoration-zap-yellow"><a href="index.html">⚡ZAP⚡</a></span>
+        <div class="flex gap-2 md:gap-5">
+            <span class="text-xl hover:underline decoration-zap-yellow"><a href="learn.html">Learn</a></span>
+            <span class="text-xl hover:underline decoration-zap-yellow"><a href="https://zigzap.org/zap" target="_blank" rel="noopener noreferrer">Docs</a></span>
+            <span class="text-xl hover:underline decoration-zap-yellow"><a href="https://github.com/zigzap/zap" target="_blank" rel="noopener noreferrer">GitHub</a></span>
+        </div>
+    </div>
 
-    </style>
-  </head>
-  <body>
-      <div class="container">
-          <div class="center"> <!--disabled center-->
-            <h1><span style="color: #FFD700">⚡</span><span style="color: #FFA500">Z</span><span style="color: #FFD700">A</span><span style="color: #FFA500">P</span><span style="color: #FFD700">⚡</span></h1>
-            <img class="logo" src="zap-tr.png" />
-            <p><b>blazingly fast</b> web apps in zig</p>
-            <a href="https://github.com/zigzap">
-              <img src="github-mark-white.png" alt="GitHub icon" width="32" height="32">view on GitHub</a>
+    <div class="pt-5 mb-10 mx-auto px-5 w-full lg:max-w-[120ch]">
+        <div class="my-14" />
 
-            <a href="https://discord.gg/jQAAN6Ubyj">
-                <img class="discord-badge" src="https://camo.githubusercontent.com/f68dc33292a51409a5e649ae0d054c9d1ea3a964f5b566d2602808fc06b13a4d/68747470733a2f2f696d672e736869656c64732e696f2f646973636f72642f313130373833353839363335363637353730363f6c6162656c3d63686174266c6f676f3d646973636f7264267374796c653d706c6173746963"/>
-            </a>
-          </div>
-      </div>
-  </body>
+        <div id="title" class="flex justify-center items-center flex-col">
+            <h1 class="text-5xl font-bold mb-3">⚡ZAP⚡</h1>
+            <h2 class="text-2xl font-medium w-full md:w-[50%] text-center opacity-65">Unleash the Low-Level Power of 
+                Zig for Blazingly Fast and Robust Web Applications.</h3>
+                <button
+                    onclick="location.href='learn.html';"
+                    class="text-white text-xl bg-zap-red px-8 py-2 rounded-lg mt-9 hover:underline decoration-zap-yellow">Get
+                    Started</button>
+        </div>
+
+        <div class="my-16 lg:my-32" />
+
+        <div id="features" class="grid grid-rows-4 sm:grid-cols-2 sm:grid-rows-2 gap-8 sm:gap-16 text-center">
+            <div class="flex items-center justify-top flex-col">
+                <h3 class="text-2xl font-semibold">Blazingly Fast Performance</h3>
+                <p class="opacity-65 text-xl">Zap leverages the facilitation of the powerful evented networking C
+                    library,
+                    facil.io, to deliver exceptional speed.</p>
+            </div>
+            <div class="flex items-center justify-top flex-col">
+                <h3 class="text-2xl font-semibold">Robust and Stable Operation</h3>
+                <p class="opacity-65 text-xl">With over six months of successful production use, Zap has proven to be
+                    extremely
+                    robust and stable.</p>
+            </div>
+            <div class="flex items-center justify-top flex-col">
+                <h3 class="text-2xl font-semibold">Memory-Safe Development</h3>
+                <p class="opacity-65 text-xl">Zap is built with Zig's strengths in mind, ensuring memory safety and
+                    error
+                    handling.</p>
+            </div>
+            <div class="flex items-center justify-top flex-col">
+                <h3 class="text-2xl font-semibold">TLS/HTTPS Support</h3>
+                <p class="opacity-65 text-xl">Zap supports secure communication with TLS/HTTPS, allowing for encrypted
+                    data
+                    transmission.</p>
+            </div>
+        </div>
+
+        <div class="my-16 lg:my-32" />
+
+        <div id="code-example" class="flex flex-col md:flex-row md:gap-10 md:items-center">
+            <div class="w-full lg:w-auto">
+                <div class="block lg:hidden mb-5">
+                    <h3 class="text-3xl font-semibold underline decoration-zap-yellow">Hello, Zap!</h3>
+                    <p class="text-lg">Getting started with Zap is simple! Take a look at the <a href="#"
+                            class="underline decoration-zap-yellow" target="_blank" rel="noopener noreferrer">learn</a>
+                        page to see what else Zap can do or jump straight into the <a href="#"
+                            class="underline decoration-zap-yellow" target="_blank" rel="noopener noreferrer">docs</a>.</p>
+                </div>
+                <pre>
+<code class="language-zig rounded-lg !pl-7 !pr-14">const std = @import("std");
+const zap = @import("zap");
+
+fn on_request(r: zap.Request) void {
+    r.sendBody("Hello, Zap!") catch return;
+}
+
+pub fn main() !void {
+    var listener = zap.HttpListener.init(.{
+        .port = 3000,
+        .on_request = on_request,
+        .log = true,
+        .max_clients = 100000,
+    });
+    try listener.listen();
+
+    std.debug.print("Listening on 0.0.0.0:3000\n", .{});
+
+    zap.start(.{
+        .threads = 2,
+        .workers = 1, // 1 worker enables sharing state between threads
+    });
+}</code>
+                    <pre>
+            </div>
+            <div class="hidden lg:block">
+                <h3 class="text-3xl font-semibold underline decoration-zap-yellow mb-2">Hello, Zap!</h3>
+                <p class="text-lg">Getting started with Zap is simple! Take a look at the <a href="learn.html"
+                        class="underline decoration-zap-yellow">learn</a>
+                    page to see what else Zap can do or jump straight into the <a href="https://zigzap.org/zap"
+                        class="underline decoration-zap-yellow" target="_blank" rel="noopener noreferrer">docs</a>.</p>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>
