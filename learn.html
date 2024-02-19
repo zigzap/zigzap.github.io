@@ -10,22 +10,40 @@
     <script src="./language-highlight/highlight.min.js"></script>
     <link rel="stylesheet" href="./language-highlight/styles/atom-one-dark.css">
     <script>hljs.highlightAll();</script>
+
+    <!-- Hamburger menu icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script>
+        // Toggle between showing and hiding the navigation menu links.
+        function toggleMenu() {
+            const x = document.getElementById("links");
+            x.classList.toggle("hidden");
+        }
+    </script>
 </head>
 
 <body class="h-screen">
     <div id="header"
         class="flex justify-between items-center py-2 px-4 md:px-10 border-b-zap-yellow border-b-solid border-b-2">
         <span class="text-3xl font-bold hover:underline decoration-zap-yellow"><a href="index.html">⚡ZAP⚡</a></span>
-        <div class="flex gap-2 md:gap-5">
+        <div class="hidden sm:flex gap-5">
             <span class="text-xl hover:underline decoration-zap-yellow"><a href="learn.html">Learn</a></span>
-            <span class="text-xl hover:underline decoration-zap-yellow"><a href="https://zigzap.org/zap" target="_blank"
-                    rel="noopener noreferrer">Docs</a></span>
-            <span class="text-xl hover:underline decoration-zap-yellow"><a href="https://github.com/zigzap/zap"
-                    target="_blank" rel="noopener noreferrer">GitHub</a></span>
+            <span class="text-xl hover:underline decoration-zap-yellow"><a href="https://zigzap.org/zap" target="_blank" rel="noopener noreferrer">Docs</a></span>
+            <span class="text-xl hover:underline decoration-zap-yellow"><a href="https://github.com/zigzap/zap" target="_blank" rel="noopener noreferrer">GitHub</a></span>
         </div>
+        <button class="block sm:hidden" onclick="toggleMenu()">
+            <i class="fa fa-bars fa-lg"></i>
+        </button>
     </div>
 
-    <div class="my-14" />
+    <div id="links" class="hidden sm:hidden py-2 flex flex-col gap-2 justify-center items-center border-b-zap-yellow border-b-solid border-b-2">
+        <span class="text-xl hover:underline decoration-zap-yellow"><a href="learn.html">Learn</a></span>
+        <span class="text-xl hover:underline decoration-zap-yellow"><a href="https://zigzap.org/zap" target="_blank" rel="noopener noreferrer">Docs</a></span>
+        <span class="text-xl hover:underline decoration-zap-yellow"><a href="https://github.com/zigzap/zap" target="_blank" rel="noopener noreferrer">GitHub</a></span>
+    </div>
+
+    <div class="my-2 sm:my-6" />
 
     <div class="pt-5 mb-10 mx-auto px-5 w-full lg:max-w-[120ch]">
         <section>
