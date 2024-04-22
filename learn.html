@@ -50,11 +50,11 @@
             <div class="w-full lg:w-auto">
                 <div class="mb-5">
                     <h3 class="text-3xl font-semibold underline decoration-zap-yellow mb-2">Getting Started</h3>
-                    <p class="text-lg mb-2">Start by creating a new 0.11.0 Zig project and changing into the new
+                    <p class="text-lg mb-2">Start by creating a new 0.12.0 Zig project and changing into the new
                         directory.</p>
 <pre><code class="language-bash">$ mkdir hello-world
 $ cd hello-world
-$ zig init-exe</code></pre>
+$ zig init</code></pre>
 
                     <div class="my-6" />
 
@@ -62,13 +62,17 @@ $ zig init-exe</code></pre>
 <pre><code class="language-zig">.{
     .name = "hello-world",
     .version = "0.0.1",
-    .minimum_zig_version = "0.11.0",
+    .minimum_zig_version = "0.12.0",
+
     .dependencies = .{
-        // zap v0.5.0
+        // zap v0.7.0
         .zap = .{
-            .url = "https://github.com/zigzap/zap/archive/refs/tags/v0.5.0.tar.gz",
-            .hash = "1220aabff84ad1d800f5657d6a49cb90dab3799765811ada27faf527be45dd315a4d",
+            .url = "https://github.com/zigzap/zap/archive/refs/tags/v0.7.0.tar.gz",
+            .hash = "12203126ff24e8018655eb7444c91f0d527d1213af16fcf2a578281abc994d01cc46",
         },
+    }
+    .paths = .{
+        "",
     },
 }</code></pre>
 
@@ -145,8 +149,8 @@ pub fn main() !void {
                     <ul class="list-disc list-inside">
                         <li class="text-lg">Q: Does Zap support Zig master?</li>
                         <ul class="list-disc list-inside ml-4 mb-2">
-                            <li>A: See the 0.12.0 branch. Please note that the 0.12.0 branch is
-                                not the official master branch of Zap until Zig 0.12.0 is released.</li>
+                            <li>A: See the zig-master branch. Please note that the zig-master branch is
+                                not the official master branch of Zap until Zig 0.13.0 is released.</li>
                         </ul>
                         <li class="text-lg">Q: Does ZAP work on Windows?</li>
                         <ul class="list-disc list-inside ml-4 mb-2">
@@ -169,9 +173,7 @@ pub fn main() !void {
                             <li>Docs are a work in progress. You can check them out <a
                                     class="underline decoration-zap-yellow" target="_blank" rel="noopener noreferrer"
                                     href="https://zigzap.org/zap" class="underline decoration-zap-yellow"
-                                    target="_blank" rel="noopener noreferrer">here</a>. The docs are based on the
-                                <code>zig-0.12.0 branch</code>
-                                but apply to the current release (Zig 0.11.0), too.
+                                    target="_blank" rel="noopener noreferrer">here</a>.
                             </li>
                         </ul>
                     </ul>
