@@ -84,7 +84,7 @@ $ zig init</code></pre>
     .optimize = optimize,
     .openssl = false, // set to true to enable TLS support
 });
-exe.addModule("zap", zap.module("zap"));
+exe.root_module.addImport("zap", zap.module("zap"));
 exe.linkLibrary(zap.artifact("facil.io"));</code></pre>
 
                     <div class="my-6" />
