@@ -60,20 +60,22 @@ $ zig init</code></pre>
 
                     <p class="text-lg mb-2">Add Zap as a dependency to <code>build.zig.zon</code></p>
 <pre><code class="language-zig">.{
-    .name = "hello-world",
+.{
+    .name = "My example project",
     .version = "0.0.1",
-    .minimum_zig_version = "0.12.0",
+    .minimum_zig_version = "0.13.0",
 
     .dependencies = .{
-        // zap v0.7.0
+        // zap v0.8.0
         .zap = .{
-            .url = "https://github.com/zigzap/zap/archive/refs/tags/v0.7.0.tar.gz",
-            .hash = "12203126ff24e8018655eb7444c91f0d527d1213af16fcf2a578281abc994d01cc46",
+            .url = "https://github.com/zigzap/zap/archive/refs/tags/v0.8.0.tar.gz",
+            .hash = "12209936c3333b53b53edcf453b1670babb9ae8c2197b1ca627c01e72670e20c1a21",
         },
-    }
+    },
     .paths = .{
         "",
     },
+}
 }</code></pre>
 
                     <div class="my-6" />
@@ -85,7 +87,7 @@ $ zig init</code></pre>
     .openssl = false, // set to true to enable TLS support
 });
 exe.root_module.addImport("zap", zap.module("zap"));
-exe.linkLibrary(zap.artifact("facil.io"));</code></pre>
+</code></pre>
 
                     <div class="my-6" />
 
